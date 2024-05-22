@@ -20,10 +20,18 @@ public class SensorListBaseAdapter extends BaseAdapter {
         this.availableSensorsList = sensorList;
     }
 
-    public static class ViewHolder
-    {
+    public static class ViewHolder {
         TextView textViewId;
         TextView textViewDesc;
+        TextView textViewType;
+        TextView textViewMaxRange;
+        TextView textViewResolution;
+        TextView textViewPower;
+        TextView textViewMinDelay;
+        TextView textViewFifoReservedEventCount;
+        TextView textViewFifoMaxEventCount;
+        TextView textViewVersion;
+        TextView textViewReportingMode;
     }
 
     @Override
@@ -32,39 +40,54 @@ public class SensorListBaseAdapter extends BaseAdapter {
 
         LayoutInflater inflater = context.getLayoutInflater();
         ViewHolder vh;
-        if(convertView == null) {
+        if (convertView == null) {
             vh = new ViewHolder();
             row = inflater.inflate(R.layout.row_item, null, true);
-            vh.textViewId = (TextView) row.findViewById(R.id.textViewId);
-            vh.textViewDesc = (TextView) row.findViewById(R.id.textViewDesc);
+            vh.textViewId = row.findViewById(R.id.textViewId);
+            vh.textViewDesc = row.findViewById(R.id.textViewDesc);
+            vh.textViewType = row.findViewById(R.id.textViewType);
+            vh.textViewMaxRange = row.findViewById(R.id.textViewMaxRange);
+            vh.textViewResolution = row.findViewById(R.id.textViewResolution);
+            vh.textViewPower = row.findViewById(R.id.textViewPower);
+            vh.textViewMinDelay = row.findViewById(R.id.textViewMinDelay);
+            vh.textViewFifoReservedEventCount = row.findViewById(R.id.textViewFifoReservedEventCount);
+            vh.textViewFifoMaxEventCount = row.findViewById(R.id.textViewFifoMaxEventCount);
+            vh.textViewVersion = row.findViewById(R.id.textViewVersion);
+            vh.textViewReportingMode = row.findViewById(R.id.textViewReportingMode);
             row.setTag(vh);
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        vh.textViewId.setText(availableSensorsList.get(position).getName());
-        vh.textViewDesc.setText(availableSensorsList.get(position).getVendor());
+        Sensor sensor = availableSensorsList.get(position);
+
+        vh.textViewId.setText(sensor.getName());
+        vh.textViewDesc.setText(sensor.getVendor());
+        vh.textViewType.setText("Type: " + sensor.getType());
+        vh.textViewMaxRange.setText("Max Range: " + sensor.getMaximumRange());
+        vh.textViewResolution.setText("Resolution: " + sensor.getResolution());
+        vh.textViewPower.setText("Power: " + sensor.getPower() + " mA");
+        vh.textViewMinDelay.setText("Min Delay: " + sensor.getMinDelay() + " µs");
+        vh.textViewFifoReservedEventCount.setText("FIFO Reserved Count: " + sensor.getFifoReservedEventCount());
+        vh.textViewFifoMaxEventCount.setText("FIFO Max Count: " + sensor.getFifoMaxEventCount());
+        vh.textViewVersion.setText("Version: " + sensor.getVersion());
+        vh.textViewReportingMode.setText("Reporting Mode: " + sensor.getReportingMode());
 
         return row;
     }
 
-
     @Override
     public int getCount() {
-        if (availableSensorsList!=null) return availableSensorsList.size();
-        return 0;
+        return (availableSensorsList != null) ? availableSensorsList.size() : 0;
     }
 
     @Override
     public Sensor getItem(int i) {
-        Sensor sensor = null;
-        if (availableSensorsList!=null) sensor = availableSensorsList.get(i);
-        return sensor;
+        return (availableSensorsList != null) ? availableSensorsList.get(i) : null;
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
-
 }

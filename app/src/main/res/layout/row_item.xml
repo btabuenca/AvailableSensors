@@ -1,25 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:textSize="20dp"
-        android:textColor="#1E90FF"
         android:id="@+id/textViewId"
-        android:layout_row="0"
-        android:layout_column="1" />
-    <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        android:textColor="#acdced"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Sensor Name: "/>
+
+    <TextView
         android:id="@+id/textViewDesc"
-        android:layout_row="1"
-        android:layout_column="1" />
-</GridLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Vendor: "/>
+
+    <TextView
+        android:id="@+id/textViewType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Type: "/>
+
+    <TextView
+        android:id="@+id/textViewMaxRange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Max Range: "/>
+
+    <TextView
+        android:id="@+id/textViewResolution"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Resolution: "/>
+
+    <TextView
+        android:id="@+id/textViewPower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Power: "/>
+
+    <TextView
+        android:id="@+id/textViewMinDelay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Min Delay: "/>
+
+    <TextView
+        android:id="@+id/textViewFifoReservedEventCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="FIFO Reserved Event Count: "/>
+
+    <TextView
+        android:id="@+id/textViewFifoMaxEventCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="FIFO Max Event Count: "/>
+
+    <TextView
+        android:id="@+id/textViewVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Version: "/>
+
+    <TextView
+        android:id="@+id/textViewReportingMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Reporting Mode: "/>
+</LinearLayout>
